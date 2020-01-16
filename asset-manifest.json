@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/mate-hackathon/static/js/main.1f6e887f.chunk.js",
-    "main.js.map": "/mate-hackathon/static/js/main.1f6e887f.chunk.js.map",
-    "runtime-main.js": "/mate-hackathon/static/js/runtime-main.d05eee6b.js",
-    "runtime-main.js.map": "/mate-hackathon/static/js/runtime-main.d05eee6b.js.map",
-    "static/js/2.d238544e.chunk.js": "/mate-hackathon/static/js/2.d238544e.chunk.js",
-    "static/js/2.d238544e.chunk.js.map": "/mate-hackathon/static/js/2.d238544e.chunk.js.map",
+    "main.js": "/mate-hackathon/static/js/main.451e8126.chunk.js",
+    "main.js.map": "/mate-hackathon/static/js/main.451e8126.chunk.js.map",
+    "runtime-main.js": "/mate-hackathon/static/js/runtime-main.5ed8586f.js",
+    "runtime-main.js.map": "/mate-hackathon/static/js/runtime-main.5ed8586f.js.map",
+    "static/js/2.50533508.chunk.js": "/mate-hackathon/static/js/2.50533508.chunk.js",
+    "static/js/2.50533508.chunk.js.map": "/mate-hackathon/static/js/2.50533508.chunk.js.map",
     "index.html": "/mate-hackathon/index.html",
-    "precache-manifest.c7a0264157be8d5cab253745f787c665.js": "/mate-hackathon/precache-manifest.c7a0264157be8d5cab253745f787c665.js",
+    "precache-manifest.f097b086afd026f145db7465638d7727.js": "/mate-hackathon/precache-manifest.f097b086afd026f145db7465638d7727.js",
     "service-worker.js": "/mate-hackathon/service-worker.js",
-    "static/js/2.d238544e.chunk.js.LICENSE": "/mate-hackathon/static/js/2.d238544e.chunk.js.LICENSE"
+    "static/js/2.50533508.chunk.js.LICENSE": "/mate-hackathon/static/js/2.50533508.chunk.js.LICENSE"
   },
   "entrypoints": [
-    "static/js/runtime-main.d05eee6b.js",
-    "static/js/2.d238544e.chunk.js",
-    "static/js/main.1f6e887f.chunk.js"
+    "static/js/runtime-main.5ed8586f.js",
+    "static/js/2.50533508.chunk.js",
+    "static/js/main.451e8126.chunk.js"
   ]
 }

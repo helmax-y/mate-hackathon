@@ -17,7 +17,16 @@
       cursor: auto;
     }
 
-    &:not(.table__td--unactive):hover {
+    &--today {
+      border-color: red;
+      border-radius: 5px;
+
+      &:hover {
+        color: red;
+      }
+    }
+
+    &:not(.table__td--unactive):not(.table__td--today):hover {
       border-color: darkgrey;
     }
   }

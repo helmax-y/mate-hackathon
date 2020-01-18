@@ -1,10 +1,13 @@
 .tabs {
   position: absolute;
-  top: 40px;
+  top: 20px;
   right: 70px;
+  padding: 10px 0;
+  border: 2px solid darkblue;
+  border-radius: 10px;
 
   &__tab {
-    margin-left: 30px;
+    margin: 0 15px;
     text-decoration: none;
     color: darkblue;
 

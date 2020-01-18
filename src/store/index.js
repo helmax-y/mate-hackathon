@@ -18,7 +18,7 @@ const reducer = (state, action) => {
     case HANDLE_ADD:
       return {
         ...state,
-        todos: [state.todos, ...action.todo],
+        todos: [...state.todos, action.todo],
       };
 
     default:

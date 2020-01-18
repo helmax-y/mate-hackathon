@@ -1,8 +1,8 @@
 import { createStore } from 'redux';
 
-const HANDLE_ADD = 'HANDLE_REMOVE';
+const HANDLE_ADD = 'HANDLE_ADD';
 
-export const handleAdd= todo => ({
+export const handleAdd = todo => ({
   type: HANDLE_ADD,
   todo,
 });

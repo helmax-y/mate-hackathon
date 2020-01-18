@@ -19,8 +19,9 @@ const Day = ({ todos }) => {
         {date[0]} {monthesAccord[date[1]]} {date[2]}
       </h2>
       {hours.map(hour => (
-        <div className="day__hour">{`${hour}:00`}
-           <Input hour={hour} />
+        <div className="day__hour">
+          {`${hour}:00`}
+          <Input hour={hour} />
         </div>
       ))}
     </div>

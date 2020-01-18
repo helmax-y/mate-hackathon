@@ -3,6 +3,7 @@
   margin: auto;
 
   &__hour {
+    display: flex;
     border-bottom: 1px solid lightgrey;
     height: 40px;
   }

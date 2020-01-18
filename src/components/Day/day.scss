@@ -1,0 +1,9 @@
+.day {
+  width: 70vw;
+  margin: auto;
+
+  &__hour {
+    border-bottom: 1px solid lightgrey;
+    height: 50px;
+  }
+}

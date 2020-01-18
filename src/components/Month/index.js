@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import './table.scss'
+import Button from '@material-ui/core/Button';
+
+import './title.scss';
+import './table.scss';
 
 const date = new Date();
 
@@ -13,8 +16,6 @@ const getLocalDay = date => {
   return day;
 };
 
-
-
 const Month = () => {
   const [year, setYear] = useState(date.getFullYear());
   const [month, setMonth] = useState(date.getMonth() + 1);
@@ -26,7 +27,7 @@ const Month = () => {
   const endArr = Array(7 - monthEndDay);
   const daysArr = ['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU'];
   const middleArr = Array.from(Array(monthLength).keys()).map(date => date + 1);
-  const  datesArr = [...startArr, ...middleArr, ...endArr];
+  const datesArr = [...startArr, ...middleArr, ...endArr];
 
   const decrease = () => {
     if (month === 1) {
@@ -48,21 +49,27 @@ const Month = () => {
 
   return (
     <>
-      <button
-        type="button"
-        onClick={decrease}
-      >
-        Prev
-      </button>
-
-      <h2 className="title">{month} /{year}</h2>
-
-      <button 
-        type="button"
-        onClick={increase}
-      >
-        Next
-      </button>
+      <section className="nav">
+        <Button 
+          variant="outlined"
+          type="button"
+          onClick={decrease}
+        >
+          &lt;--
+        </Button>
+  
+        <h2 className="nav__title">
+          {month} /{year}
+        </h2>
+  
+        <Button 
+          variant="outlined"
+          type="button"
+          onClick={increase}
+        >
+          --&gt;
+        </Button>
+      </section>
 
       <table className="table">
         <thead>

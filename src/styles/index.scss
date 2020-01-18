@@ -1,0 +1,11 @@
+.day {
+  width: 700px;
+  margin: auto;
+
+  &__hour {
+    border-bottom: 1px solid lightgrey;
+    height: 50px;
+    display: flex;
+    align-items: center;
+  }
+}

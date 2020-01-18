@@ -1,12 +1,11 @@
 import React from 'react';
-import Day from "./components/Day";
-import "./styles/index.scss";
+import Month from './components/Month';
 
 function App() {
   return (
-    <div className="App">
-      <Day/>
-    </div>
+    <main>
+      <Month />
+    </main>
   );
 }
 

@@ -12,7 +12,12 @@
     border: 2px solid #e6e5e6;
     cursor: pointer;
 
-    &:hover {
+    &--unactive {
+      background-color: #eeeeee;
+      cursor: auto;
+    }
+
+    &:not(.table__td--unactive):hover {
       border-color: darkgrey;
     }
   }

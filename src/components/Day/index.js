@@ -1,16 +1,17 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 
 import './day.scss';
 import monthesAccord from '../monthesAccord';
 
 const hours = [...Array(24).keys()];
-// const date = new Date();
-// date.setMonth(date.getMonth() - 1);
 
 const Day = () => {
   const location = useLocation();
-  const date = location.pathname.slice(1).split('-');  
+  const date = location.pathname.slice(1).split('-');
+  const params = useParams();
+  console.log(params);
+  
 
   return (
     <div className="day">

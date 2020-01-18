@@ -1,0 +1,15 @@
+.tabs {
+  position: absolute;
+  top: 40px;
+  right: 70px;
+
+  &__tab {
+    margin-left: 30px;
+    text-decoration: none;
+    color: darkblue;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

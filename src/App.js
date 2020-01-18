@@ -1,9 +1,11 @@
 import React from 'react';
+import Month from './components/Month';
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <main>
+      <Month />
+    </main>
   );
 }
 

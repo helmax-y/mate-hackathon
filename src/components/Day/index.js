@@ -1,30 +1,17 @@
-import React, { useState } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import Input  from '../Input'
 import { connect } from 'react-redux';
-import { handleAdd } from '../../store';
+import { getTodos } from '../../store';
 
 import './day.scss';
 import monthesAccord from '../monthesAccord';
 
 const hours = [...Array(24).keys()];
 
-const Day = ( {handleAdding }) => {
+const Day = ({ todos }) => {
   const location = useLocation();
   const date = location.pathname.slice(1).split('-');
-  const [input, setInput] = useState('');
-
-  const handleInputChange = (event) => {
-    setInput(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    handleAdding({
-        id: +new Date(),
-        body: input,
-      });
-  };
 
   return (
     <div className="day">
@@ -34,18 +21,15 @@ const Day = ( {handleAdding }) => {
       </h2>
       {hours.map(hour => (
         <div className="day__hour">{`${hour}:00`}
-          <form onSubmit={handleSubmit}>
-            <input
-                className="new-todo"
-                type="text"
-                value={input}
-                onChange={handleInputChange}
-            />
-          </form>
+           <Input hour={hour} />
         </div>
       ))}
     </div>
   );
 };
 
-export default connect(null, { handleAdding: handleAdd })(Day);
+const mapStateToProps = state => ({
+  todos: getTodos(state),
+});
+
+export default connect(mapStateToProps, null)(Day);

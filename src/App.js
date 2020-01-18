@@ -1,12 +1,16 @@
 import React from 'react';
-import Month from './components/Month';
+import { Switch, Route } from 'react-router-dom';
 
-function App() {
+import Month from './components/Month';
+import Day from './components/Day';
+
+const App = () => {
   return (
-    <main>
-      <Month />
-    </main>
+    <Switch>
+      <Route path="/" exact component={Month} />
+      <Route path="/:date?" component={Day} />
+    </Switch>
   );
-}
+};
 
 export default App;

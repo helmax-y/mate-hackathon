@@ -1,11 +1,8 @@
-.day {
-  width: 700px;
-  margin: auto;
+body {
+  font-family: Roboto, sans-serif;
+  line-height: 1;
+}
 
-  &__hour {
-    border-bottom: 1px solid lightgrey;
-    height: 50px;
-    display: flex;
-    align-items: center;
-  }
+* {
+  box-sizing: border-box;
 }

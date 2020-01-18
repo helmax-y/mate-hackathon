@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import './table.scss'
+import { useHistory } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+
+import './title.scss';
+import './table.scss';
+import monthesAccord from '../monthesAccord';
 
 const date = new Date();
 
@@ -13,9 +18,9 @@ const getLocalDay = date => {
   return day;
 };
 
-
-
 const Month = () => {
+  const history = useHistory();
+
   const [year, setYear] = useState(date.getFullYear());
   const [month, setMonth] = useState(date.getMonth() + 1);
 
@@ -26,7 +31,7 @@ const Month = () => {
   const endArr = Array(7 - monthEndDay);
   const daysArr = ['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU'];
   const middleArr = Array.from(Array(monthLength).keys()).map(date => date + 1);
-  const  datesArr = [...startArr, ...middleArr, ...endArr];
+  const datesArr = [...startArr, ...middleArr, ...endArr];
 
   const decrease = () => {
     if (month === 1) {
@@ -46,23 +51,33 @@ const Month = () => {
     }
   };
 
+  const setURL = (date) => {
+    history.push(`${date}-${month}-${year}`)
+  }
+
   return (
     <>
-      <button
-        type="button"
-        onClick={decrease}
-      >
-        Prev
-      </button>
-
-      <h2 className="title">{month} /{year}</h2>
-
-      <button 
-        type="button"
-        onClick={increase}
-      >
-        Next
-      </button>
+      <section className="nav">
+        <Button 
+          variant="outlined"
+          type="button"
+          onClick={decrease}
+        >
+          &lt;--
+        </Button>
+  
+        <h2 className="nav__title">
+          {monthesAccord[month]} {year}
+        </h2>
+  
+        <Button 
+          variant="outlined"
+          type="button"
+          onClick={increase}
+        >
+          --&gt;
+        </Button>
+      </section>
 
       <table className="table">
         <thead>
@@ -72,28 +87,54 @@ const Month = () => {
         </thead>
         <tbody>
           <tr>
-            {datesArr.slice(0,7)
-              .map(date => <td className="table__td">{date}</td>)}
+            {datesArr.slice(0, 7).map(date => (
+              <td 
+                className="table__td"
+                onClick={() => date && setURL(date)}
+              >
+                {date}
+              </td>
+            ))}
           </tr>
           <tr>
-            {datesArr.slice(7,14)
-              .map(date => <td className="table__td">{date}</td>)}
+            {datesArr.slice(7, 14).map(date => (
+              <td 
+                className="table__td"
+                onClick={() => setURL(date)}
+              >
+                {date}
+              </td>
+            ))}
           </tr>
           <tr>
-            {datesArr.slice(14,21)
-              .map(date => <td className="table__td">{date}</td>)}
+            {datesArr.slice(14, 21).map(date => (
+              <td 
+                className="table__td"
+                onClick={() => setURL(date)}
+              >
+                {date}
+              </td>
+            ))}
           </tr>
           <tr>
-            {datesArr.slice(21,28)
-              .map(date => <td className="table__td">{date}</td>)}
+            {datesArr.slice(21, 28).map(date => (
+              <td 
+                className="table__td"
+                onClick={() => setURL(date)}
+              >
+                {date}
+              </td>
+            ))}
           </tr>
           <tr>
-            {datesArr.slice(28, 35)
-              .map(date => <td className="table__td">{date}</td>)}
-          </tr>
-          <tr>
-            {datesArr.slice(35)
-              .map(date => <td className="table__td">{date}</td>)}
+            {datesArr.slice(28, 35).map(date => (
+              <td 
+                className="table__td"
+                onClick={() => date && setURL(date)}
+              >
+                {date}
+              </td>
+            ))}
           </tr>
         </tbody>
       </table>

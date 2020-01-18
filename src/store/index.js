@@ -1,23 +1,31 @@
 import { createStore } from 'redux';
-import preparedData from '../preparedData';
+
+const HANDLE_ADD = 'HANDLE_REMOVE';
+
+export const handleAdd= todo => ({
+  type: HANDLE_ADD,
+  todo,
+});
+
+export const getTodos = state => state.todos;
 
 const initialState = {
-  calendar: preparedData,
-  currentMonth: 1,
+  todos: [],
 };
 
-export const selectDates = state => {
-  const activeMonth = state.calendar
-    .find(month => month.id === state.currentMonth);
-
-  return activeMonth.dates;
-};
-
-const rootReducer = (state, action) => {
+const reducer = (state, action) => {
   switch (action.type) {
+    case HANDLE_ADD:
+      return {
+        ...state,
+        todos: [state.todos, ...action.todo],
+      };
+
     default:
       return state;
   }
 };
 
-export default createStore(rootReducer, initialState);
+const store = createStore(reducer, initialState);
+
+export default store;

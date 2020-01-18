@@ -1,0 +1,21 @@
+.week-wrapper {
+  width: 70vw;
+  margin: auto;
+}
+
+.week-table {
+  border-collapse: collapse;
+  width: 100%;
+
+  &__row {
+    height: 50px;
+
+    &:nth-child(even) {
+      background-color: #f8f8f8;
+    }
+
+    &:nth-child(odd) {
+      background-color: #fff;
+    }
+  }
+}

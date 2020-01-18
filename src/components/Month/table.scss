@@ -1,0 +1,19 @@
+.table {
+  height: 85vh;
+  margin: 0 auto;
+  text-align: center;
+
+  &__th {
+    border: 2px solid darkgrey;
+  }
+
+  &__td {
+    width: 13vw;
+    border: 2px solid #e6e5e6;
+    cursor: pointer;
+
+    &:hover {
+      border-color: darkgrey;
+    }
+  }
+}

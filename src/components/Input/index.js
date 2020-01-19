@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { handleAdd } from '../../store';
-import { getTodos } from '../../store';
+import { useSelector, useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import ClassNames from 'classnames';
 
+const URL = 'https://my-json-server.typicode.com/helmax-y/mate-hackathon/todos';
 
-const Input = ( {handleAdding, hour, todos }) => {
+const Input = ({ hour, todos }) => {
   const location = useLocation();
   const [input, setInput] = useState('');
 
@@ -16,26 +16,34 @@ const Input = ( {handleAdding, hour, todos }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    handleAdding({
-      date: location.pathname,
-      hour: hour,
-      body: input,
+    fetch(URL, {
+      method: 'POST',
+      body: JSON.stringify([
+        ...todos,
+        {
+          date: location.pathname.slice(1).split('-'),
+          hour: hour,
+          body: input,
+        },
+      ]),
     });
-  };
+  };  
+
+  const inputClass = ClassNames(
+    { day__input: true },
+    // { 'day__input--event': todos.find() }
+  )
 
   return (
-      <form onSubmit={handleSubmit}>
-        <input
-            className="new-todo"
-            type="text"
-            value={input}
-            onChange={handleInputChange}
-        />
-      </form>
-  )};
+    <form onSubmit={handleSubmit}>
+      <input
+        className={inputClass}
+        type="text"
+        value={input}
+        onChange={handleInputChange}
+      />
+    </form>
+  );
+};
 
-const mapStateToProps = state => ({
-  todos: getTodos(state),
-});
-
-export default connect(mapStateToProps, { handleAdding: handleAdd })(Input);
+export default Input;

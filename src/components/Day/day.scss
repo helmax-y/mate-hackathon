@@ -3,7 +3,25 @@
   margin: auto;
 
   &__hour {
+    display: flex;
+    align-items: center;
     border-bottom: 1px solid lightgrey;
     height: 40px;
+
+    &--event {
+      border-color: red;
+    }
+  }
+
+  &__input {
+    margin-left: 40px;
+    padding: 5px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    outline: none;
+
+    &--event {
+      border-color: red;
+    }
   }
 }

@@ -1,23 +1,15 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
 import './day.scss';
 import monthesAccord from '../monthesAccord';
 import Input  from '../Input';
-import { getTodos } from '../../store';
 
 const hours = [...Array(24).keys()];
 
 const Day = () => {
-  console.log(getTodos);
-
-  const todos = useSelector(getTodos);
   const location = useLocation();
   const date = location.pathname.slice(1).split('-');
-
-  const isThereEvent = todos.find(todo => todo.date === location.pathname.slice(1));
-  const isImportant = isThereEvent && isThereEvent.isImportant;
 
   return (
     <div className="day">

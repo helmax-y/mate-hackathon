@@ -24,11 +24,11 @@ const Day = () => {
           >
             <span className="day__hour-text">{`${hour}:00`}</span>
             <Input hour={hour} />
-              <div className="labels">
+              {/* <div className="labels">
                 <label className="label--important">Important
                   <input
                     type="checkbox"
-                    checked={isImportant}
+                    // checked={isImportant}
                   />
                 </label>
 
@@ -39,7 +39,7 @@ const Day = () => {
                   <option value="">work</option>
                   <option value="">personal</option>
                 </select>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>

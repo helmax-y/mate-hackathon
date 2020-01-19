@@ -1,25 +1,22 @@
 .tabs {
   position: absolute;
-  top: 20px;
-  right: 70px;
-  padding: 10px 0;
+  top: 25px;
+  right: 15vw;
+  display: flex;
   border: 2px solid darkblue;
-  border-radius: 10px;
 
   &__tab {
-    margin: 0 15px;
+    padding: 8px 15px;
     text-decoration: none;
     color: darkblue;
+
+    &_active {
+      background-color: darkblue;
+      color: white;
+    }
 
     &:hover {
       text-decoration: underline;
     }
-  }
-
-  @media screen and (max-width: 920px) {
-    display: flex;
-    flex-direction: column;
-    right: 3%;
-    font-size: 10px;
   }
 }

@@ -18,19 +18,21 @@ const Day = ({ todos }) => {
   const dayClass = ClassNames(
     { day__hour: true },
     // { 'day__hour--event': true }
-  )
+  );
 
   return (
     <div className="day">
       <h2 className="day__date">
         {date[0]} {monthesAccord[date[1]]} {date[2]}
       </h2>
-      {hours.map(hour => (
-        <div className={dayClass}>
-          {`${hour}:00`}
-          <Input hour={hour} />
-        </div>
-      ))}
+      <div className="day__content">
+        {hours.map(hour => (
+          <div className={dayClass}>
+            <span className="day__hour-text">{`${hour}:00`}</span>
+            <Input hour={hour} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

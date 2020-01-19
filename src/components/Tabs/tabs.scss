@@ -5,6 +5,12 @@
   display: flex;
   border: 2px solid darkblue;
 
+  @media (max-width: 800px) {
+    position: initial;
+    width:  203px;
+    margin: auto;
+  }
+
   &__tab {
     padding: 8px 15px;
     text-decoration: none;

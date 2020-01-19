@@ -1,6 +1,10 @@
 .week-wrapper {
   width: 70vw;
   margin: auto;
+
+  @media (max-width: 750px) {
+    width: 85vw;
+  }
 }
 
 .week-table {

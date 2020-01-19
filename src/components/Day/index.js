@@ -16,12 +16,14 @@ const Day = () => {
       <h2 className="day__date">
         {date[0]} {monthesAccord[date[1]]} {date[2]}
       </h2>
-      {hours.map(hour => (
-        <div key={hour} className="day__hour">
-          {`${hour}:00`}
-          <Input hour={hour} />
-        </div>
-      ))}
+      <div className="day__content">
+        {hours.map(hour => (
+          <div className="day__hour">
+            <span className="day__hour-text">{`${hour}:00`}</span>
+            <Input hour={hour} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,20 +1,39 @@
 .day {
-  width: 70vw;
+  width: 67vw;
   margin: auto;
+
+  &__date {
+    display: inline-block;
+  }
+
+  &__content {
+    margin-top: 15px;
+  }
 
   &__hour {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid lightgrey;
     height: 40px;
+  }
+
+  &__hour-text {
+    display: block;
+    width: 3vw;
   }
 
   &__input {
     margin-left: 40px;
     padding: 5px;
-    border: 1px solid grey;
-    border-radius: 5px;
+    border: none;
+    height: 40px;
+    display: block;
+    width: 64vw;
     outline: none;
+    border-bottom: 1px solid lightgrey;
+
+    &:focus {
+      background-color: #CEF4F2;
+    }
 
     &--event {
       border-color: red;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Button from '@material-ui/core/Button';
 
@@ -19,9 +20,18 @@ const getLocalDay = date => {
 };
 
 const Month = () => {
+  const history = useHistory();
   const year = useSelector(getYear);
   const month = useSelector(getMonth);
   const dispatch = useDispatch();
+
+  const location = useLocation();
+
+  if (location.search === '?current') {
+    dispatch(setYear(2020));
+    dispatch(setMonth(1));
+    history.push('/month');
+  }
 
   const monthLength = new Date(year, month, 0).getDate();
   const monthStartDay = getLocalDay(new Date(year, month - 1));

@@ -41,7 +41,7 @@ const Input = ({ hour }) => {
   );
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="day__form" onSubmit={handleSubmit}>
       <input
         className={inputClass}
         type="text"
@@ -49,23 +49,23 @@ const Input = ({ hour }) => {
         onChange={event => setInput(event.target.value)}
         onDoubleClick={editEvent}
       />
-      {/* {isThereEvent && (
-        <label>
+      {isThereEvent && (
+        <label className="day__checkbox">
           {isThereEvent.isImportant
             ? 'Important'
             : 'Is it important?'}
           <input 
-            className="checkbox"
             type="checkbox" 
             checked={isThereEvent.isImportant}
-            onChange={event => dispatch(toggleImportance(
-              isThereEvent.date,
-              hour,
-              event.target.checked
-            ))}
+            onChange={() => {
+              dispatch(toggleImportance(
+                location.pathname.slice(1),
+                hour
+              ));
+            }}
           />
         </label>
-      )} */}
+      )}
     </form>
   );
 };

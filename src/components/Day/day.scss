@@ -25,6 +25,7 @@
   &__input {
     margin-left: 40px;
     padding: 5px;
+    font-size: 16px;
     border: none;
     height: 40px;
     display: block;
@@ -39,6 +40,16 @@
     &--event {
       border-color: red;
     }
+  }
+
+  &__form {
+    position: relative;
+  }
+
+  &__checkbox {
+    position: absolute;
+    top: 10px;
+    right: 0;
   }
 }
 

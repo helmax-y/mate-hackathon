@@ -8,7 +8,6 @@ const initialState = {
 
 const ADD_TODO = 'ADD_TODO';
 const TOGGLE_IMPORTANCE = 'TOGGLE_IMPORTANCE';
-const ADD_MARK = 'ADD_MARK';
 const DELETE_TODO = 'DELETE_TODO';
 const SET_YEAR = 'SET_YEAR';
 const SET_MONTH = 'SET_MONTH';
@@ -22,11 +21,10 @@ export const addTodo = payload => ({
   payload,
 });
 
-export const toggleImportance = (date, hour, isImportant) => ({
-  type: ADD_TODO,
+export const toggleImportance = (date, hour) => ({
+  type: TOGGLE_IMPORTANCE,
   date,
-  hour,
-  isImportant,
+  hour
 });
 
 export const deleteTodo = (date, body, hour) => ({
@@ -57,14 +55,14 @@ const reducer = (state, action) => {
         ],
       };
 
-    case TOGGLE_IMPORTANCE:      
+    case TOGGLE_IMPORTANCE:            
       return {
         ...state,
         todos: state.todos.map(todo => todo.date === action.date
           && todo.hour === action.hour
           ? {
             ...todo,
-            isImportant: action.isImportant,
+            isImportant: !todo.isImportant,
           }
           : todo),
       };

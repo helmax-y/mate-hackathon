@@ -10,7 +10,7 @@ const MonthDay = ({ date }) => {
   const todos = useSelector(getTodos);
   const year = useSelector(getYear);
   const month = useSelector(getMonth);
-  const isThereEvent = todos.find(todo => todo.date === [date, month, year].join('-'));
+  const isThereEvent = todos.find(todo => todo && todo.date === [date, month, year].join('-'));
 
   const tdClass = ClassNames(
     { table__td: true },

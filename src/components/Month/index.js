@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Button from '@material-ui/core/Button';
 
 import './title.scss';
 import './table.scss';
 import monthesAccord from '../monthesAccord';
 import MonthDay from '../MonthDay';
-
-const date = new Date();
+import { getYear, getMonth, setYear, setMonth } from '../../store';
 
 const getLocalDay = date => {
   let day = date.getDay();
@@ -19,8 +19,9 @@ const getLocalDay = date => {
 };
 
 const Month = () => {
-  const [year, setYear] = useState(date.getFullYear());
-  const [month, setMonth] = useState(date.getMonth() + 1);
+  const year = useSelector(getYear);
+  const month = useSelector(getMonth);
+  const dispatch = useDispatch();
 
   const monthLength = new Date(year, month, 0).getDate();
   const monthStartDay = getLocalDay(new Date(year, month - 1));
@@ -33,19 +34,19 @@ const Month = () => {
 
   const decrease = () => {
     if (month === 1) {
-      setYear(year - 1);
-      setMonth(12);
+      dispatch(setYear(year - 1));
+      dispatch(setMonth(12));
     } else {
-      setMonth(month - 1);
+      dispatch(setMonth(month - 1));
     }
   };
 
   const increase = () => {
     if (month === 12) {
-      setYear(year + 1);
-      setMonth(1);
+      dispatch(setYear(year + 1));
+      dispatch(setMonth(1));
     } else {
-      setMonth(month + 1);
+      dispatch(setMonth(month + 1));
     }
   };
 
@@ -86,8 +87,6 @@ const Month = () => {
             {datesArr.slice(0, 7).map(date => (
               <MonthDay
                 date={date}
-                month={month}
-                year={year}
               />
             ))}
           </tr>
@@ -95,8 +94,6 @@ const Month = () => {
             {datesArr.slice(7, 14).map(date => (
               <MonthDay
                 date={date}
-                month={month}
-                year={year}
               />
             ))}
           </tr>
@@ -104,8 +101,6 @@ const Month = () => {
             {datesArr.slice(14, 21).map(date => (
               <MonthDay
                 date={date}
-                month={month}
-                year={year}
               />
             ))}
           </tr>
@@ -113,8 +108,6 @@ const Month = () => {
             {datesArr.slice(21, 28).map(date => (
               <MonthDay
                 date={date}
-                month={month}
-                year={year}
               />
             ))}
           </tr>
@@ -122,8 +115,6 @@ const Month = () => {
             {datesArr.slice(28, 35).map(date => (
               <MonthDay
                 date={date}
-                month={month}
-                year={year}
               />
             ))}
           </tr>

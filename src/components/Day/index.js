@@ -1,24 +1,15 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import ClassNames from 'classnames';
-
-import Input  from '../Input'
-import { connect } from 'react-redux';
-import { getTodos } from '../../store';
+import { useLocation } from 'react-router-dom';
 
 import './day.scss';
 import monthesAccord from '../monthesAccord';
+import Input  from '../Input'
 
 const hours = [...Array(24).keys()];
 
-const Day = ({ todos }) => {
+const Day = () => {
   const location = useLocation();
   const date = location.pathname.slice(1).split('-');
-
-  const dayClass = ClassNames(
-    { day__hour: true },
-    // { 'day__hour--event': true }
-  );
 
   return (
     <div className="day">
@@ -27,7 +18,7 @@ const Day = ({ todos }) => {
       </h2>
       <div className="day__content">
         {hours.map(hour => (
-          <div className={dayClass}>
+          <div className="day__hour">
             <span className="day__hour-text">{`${hour}:00`}</span>
             <Input hour={hour} />
           </div>
@@ -37,8 +28,4 @@ const Day = ({ todos }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  todos: getTodos(state),
-});
-
-export default connect(mapStateToProps, null)(Day);
+export default Day;

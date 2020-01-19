@@ -22,7 +22,7 @@ const Tabs = () => {
       <NavLink
           activeClassName="tabs__tab_active"
           className="tabs__tab"
-          to="18-1-2020">
+          to="19-1-2020">
         Day
       </NavLink>
     </section>

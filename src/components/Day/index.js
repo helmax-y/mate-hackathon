@@ -18,7 +18,10 @@ const Day = () => {
       </h2>
       <div className="day__content">
         {hours.map(hour => (
-          <div className="day__hour">
+          <div
+              className="day__hour"
+              key={hour}
+          >
             <span className="day__hour-text">{`${hour}:00`}</span>
             <Input hour={hour} />
           </div>

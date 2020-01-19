@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import ClassNames from 'classnames';
 
-import './checkbox.scss';
 import { getTodos, toggleImportance, addTodo, deleteTodo } from '../../store';
 
 const Input = ({ hour }) => {

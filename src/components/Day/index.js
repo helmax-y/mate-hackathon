@@ -18,9 +18,28 @@ const Day = () => {
       </h2>
       <div className="day__content">
         {hours.map(hour => (
-          <div className="day__hour">
+          <div
+              className="day__hour"
+              key={hour}
+          >
             <span className="day__hour-text">{`${hour}:00`}</span>
             <Input hour={hour} />
+              <div className="labels">
+                <label className="label--important">Important
+                  <input
+                    type="checkbox"
+                    checked={isImportant}
+                  />
+                </label>
+
+                <select
+                    className="label--todo-type"
+                  // onChange={}
+                >
+                  <option value="">work</option>
+                  <option value="">personal</option>
+                </select>
+            </div>
           </div>
         ))}
       </div>

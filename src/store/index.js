@@ -22,9 +22,10 @@ export const addTodo = payload => ({
   payload,
 });
 
-export const toggleImportance = (id, isImportant) => ({
+export const toggleImportance = (date, hour, isImportant) => ({
   type: ADD_TODO,
-  id,
+  date,
+  hour,
   isImportant,
 });
 
@@ -46,6 +47,8 @@ export const setMonth = payload => ({
 });
 
 const reducer = (state, action) => {
+  console.log(state, action);
+
   switch (action.type) {
     case ADD_TODO:
       return {
@@ -56,16 +59,17 @@ const reducer = (state, action) => {
         ],
       };
 
-    case TOGGLE_IMPORTANCE:
+    case TOGGLE_IMPORTANCE:      
       return {
         ...state,
-        todos: state.todos.map(todo => todo.id === action.id
+        todos: state.todos.map(todo => todo.date === action.date
+          && todo.hour === action.hour
           ? {
             ...todo,
             isImportant: action.isImportant,
           }
-          : todo)
-      }
+          : todo),
+      };
 
     case DELETE_TODO:
       return {

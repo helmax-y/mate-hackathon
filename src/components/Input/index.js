@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import ClassNames from 'classnames';
 
-import { getTodos, addTodo, deleteTodo } from '../../store';
+import './checkbox.scss';
+import { getTodos, toggleImportance, addTodo, deleteTodo } from '../../store';
 
 const Input = ({ hour }) => {
   const [input, setInput] = useState('');
@@ -11,19 +12,21 @@ const Input = ({ hour }) => {
   const todos = useSelector(getTodos);
   const dispatch = useDispatch();
 
-  const isThereEvent = todos.find(todo => todo.date === location.pathname.slice(1)
+  const isThereEvent = todos.find(todo => todo 
+    && todo.date === location.pathname.slice(1)
     && todo.hour === hour);
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    dispatch(addTodo({
-      id: new Date(),
-      date: location.pathname.slice(1),
-      hour,
-      body: input.trim(),
-      isImportant: false,
-    }));
+    if (input) {
+      dispatch(addTodo({
+        date: location.pathname.slice(1),
+        hour,
+        body: input.trim(),
+        isImportant: false,
+      }));
+    }
   };
 
   const editEvent = (event) => {
@@ -47,6 +50,23 @@ const Input = ({ hour }) => {
         onChange={event => setInput(event.target.value)}
         onDoubleClick={editEvent}
       />
+      {isThereEvent && (
+        <label>
+          {isThereEvent.isImportant
+            ? 'Important'
+            : 'Is it important?'}
+          <input 
+            className="checkbox"
+            type="checkbox" 
+            checked={isThereEvent.isImportant}
+            onChange={event => dispatch(toggleImportance(
+              isThereEvent.date,
+              hour,
+              event.target.checked
+            ))}
+          />
+        </label>
+      )}
     </form>
   );
 };

@@ -1,1 +1,1 @@
-[DEMO LINK]('http://helmax-y.github.io/mate-hackathon/');
+[DEMO LINK](http://helmax-y.github.io/mate-hackathon/)

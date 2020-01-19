@@ -3,12 +3,12 @@ import './week.scss';
 
 const hours = [...Array(24).keys()];
 const preparedHours = hours.map(hour => [`${hour}:00`, ...Array(7)]);
-const dates = [24, 25, 26, 27, 28, 29, 1]//this must be in props?
+const dates = [13, 14, 15, 16, 17, 18, 19]//this must be in props?
 const weekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 const Week = () => (
   <div className="week-wrapper">
-    <h1>Month YEAR</h1>
+    <h1>January 2020</h1>
     <table className="week-table">
       <thead>
       <tr>
@@ -20,9 +20,14 @@ const Week = () => (
       </thead>
       <tbody>
       {preparedHours.map(row => (
-          <tr className="week-table__row">
+          <tr
+              className="week-table__row"
+          >
             {row.map(cell => (
-                <td className="week-table__cell">{cell}</td>
+                <td
+                    className="week-table__cell"
+                >{cell}
+                </td>
             ))}
           </tr>
       ))}

@@ -1,11 +1,23 @@
 .month-container {
   width: 70vw;
   margin: 0 auto;
+
+  @media (max-width: 600px) {
+    width: 85vw;
+  }
 }
 
 .table {
   height: 70vh;
   text-align: center;
+
+  @media (max-width: 550px) {
+    height: 65vh;
+  }
+
+  @media (max-width: 450px) {
+    height: 45vh;
+  }
 
   &__th {
     border: 2px solid darkgrey;

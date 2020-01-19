@@ -3,35 +3,30 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import ClassNames from 'classnames';
 
-const URL = 'https://my-json-server.typicode.com/helmax-y/mate-hackathon/todos';
+import { getTodos, addTodo } from '../../store';
 
-const Input = ({ hour, todos }) => {
-  const location = useLocation();
+const Input = ({ hour }) => {
   const [input, setInput] = useState('');
+  const location = useLocation();
+  const todos = useSelector(getTodos);
+  const dispatch = useDispatch();
 
-  const handleInputChange = (event) => {
-    setInput(event.target.value);
-  };
+  const isThereEvent = todos.find(todo => todo.date === location.pathname.slice(1)
+    && todo.hour === hour);
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    fetch(URL, {
-      method: 'POST',
-      body: JSON.stringify([
-        ...todos,
-        {
-          date: location.pathname.slice(1).split('-'),
-          hour: hour,
-          body: input,
-        },
-      ]),
-    });
-  };  
+    dispatch(addTodo({
+      date: location.pathname.slice(1),
+      hour,
+      body: input.trim(),
+    }));
+  };
 
   const inputClass = ClassNames(
     { day__input: true },
-    // { 'day__input--event': todos.find() }
+    { 'day__input--event': isThereEvent }
   )
 
   return (
@@ -39,8 +34,8 @@ const Input = ({ hour, todos }) => {
       <input
         className={inputClass}
         type="text"
-        value={input}
-        onChange={handleInputChange}
+        value={(isThereEvent && isThereEvent.body) || input}
+        onChange={event => setInput(event.target.value)}
       />
     </form>
   );

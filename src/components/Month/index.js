@@ -50,84 +50,86 @@ const Month = () => {
   };
 
   return (
-    <>
+    <div className="month-container">
       <section className="nav">
-        <Button 
+        <Button
           variant="outlined"
           type="button"
           onClick={decrease}
         >
-          &lt;--
+          ←
         </Button>
-  
+
         <h2 className="nav__title">
           {monthesAccord[month]} {year}
         </h2>
-  
-        <Button 
+
+        <Button
           variant="outlined"
           type="button"
           onClick={increase}
         >
-          --&gt;
+          →
         </Button>
       </section>
 
       <table className="table">
         <thead>
           <tr>
-            {daysArr.map(day => <th className="table__th">{day}</th>)}
+            {daysArr.map(day => (
+              <th key={day} className="table__th">{day}</th>
+            ))}
           </tr>
         </thead>
         <tbody>
           <tr>
             {datesArr.slice(0, 7).map(date => (
-              <MonthDay 
+              <MonthDay
                 date={date}
                 month={month}
-                year={year}  
+                year={year}
               />
             ))}
           </tr>
           <tr>
             {datesArr.slice(7, 14).map(date => (
-              <MonthDay 
+              <MonthDay
                 date={date}
                 month={month}
-                year={year}  
+                year={year}
               />
             ))}
           </tr>
           <tr>
             {datesArr.slice(14, 21).map(date => (
-              <MonthDay 
+              <MonthDay
                 date={date}
                 month={month}
-                year={year}  
+                year={year}
               />
             ))}
           </tr>
           <tr>
             {datesArr.slice(21, 28).map(date => (
-              <MonthDay 
+              <MonthDay
                 date={date}
                 month={month}
-                year={year}  
+                year={year}
               />
             ))}
           </tr>
           <tr>
             {datesArr.slice(28, 35).map(date => (
-              <MonthDay 
+              <MonthDay
                 date={date}
                 month={month}
-                year={year}  
+                year={year}
               />
             ))}
           </tr>
         </tbody>
       </table>
-    </>
+    </div>
   );
 };
 

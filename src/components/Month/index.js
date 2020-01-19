@@ -25,12 +25,13 @@ const Month = () => {
 
   const monthLength = new Date(year, month, 0).getDate();
   const monthStartDay = getLocalDay(new Date(year, month - 1));
-  const startArr = Array(monthStartDay - 1);
+  const startArr = Array.from(Array(monthStartDay - 1)).map(el => '');
   const monthEndDay = getLocalDay(new Date(year, month - 1, monthLength));
-  const endArr = Array(7 - monthEndDay);
+  const endArr = Array.from(Array(7 - monthEndDay)).map(el => '');
   const daysArr = ['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU'];
   const middleArr = Array.from(Array(monthLength).keys()).map(date => date + 1);
   const datesArr = [...startArr, ...middleArr, ...endArr];
+  console.log(datesArr)
 
   const decrease = () => {
     if (month === 1) {

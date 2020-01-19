@@ -14,6 +14,7 @@
     display: flex;
     align-items: center;
     height: 40px;
+    position: relative;
   }
 
   &__hour-text {
@@ -40,3 +41,16 @@
     }
   }
 }
+
+.labels {
+  position: absolute;
+  right: 5%;
+}
+
+.label--important {
+  text-transform: uppercase;
+  font-size: 0.7em;
+  color: red;
+  margin-right: 30px;
+}
+

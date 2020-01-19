@@ -50,7 +50,7 @@ const Input = ({ hour }) => {
         onChange={event => setInput(event.target.value)}
         onDoubleClick={editEvent}
       />
-      {isThereEvent && (
+      {/* {isThereEvent && (
         <label>
           {isThereEvent.isImportant
             ? 'Important'
@@ -66,7 +66,7 @@ const Input = ({ hour }) => {
             ))}
           />
         </label>
-      )}
+      )} */}
     </form>
   );
 };

@@ -14,7 +14,7 @@ const Week = () => (
       <tr>
         <th></th>
         {dates.map((date, i) => (
-            <th>{weekDays[i]} {date}</th>
+          <th key={date}>{weekDays[i]} {date}</th>
         ))}
       </tr>
       </thead>

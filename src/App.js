@@ -7,14 +7,15 @@ import Week from './components/Week';
 import Day from './components/Day';
 
 const App = () => {
+
   return (
     <main>
       <Tabs />
       <Switch>
-        <Route path="/" exact component={Month} />
-        <Route path="/month" component={Month} />
+        <Route path="/" exact component={Month} />} />
+        <Route path="/month" component={Month} />} />
         <Route path="/week" component={Week} />
-        <Route path="/:date?" component={Day} />
+        <Route path="/:date?" component={Day} />} />
       </Switch>
     </main>
   );

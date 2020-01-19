@@ -1,24 +1,27 @@
 import { createStore } from 'redux';
 
-const HANDLE_ADD = 'HANDLE_ADD';
+const initialState = {
+  todos: [],
+};
 
-export const handleAdd = todo => ({
-  type: HANDLE_ADD,
+const ADD_TODO = 'ADD_TODO';
+
+export const addTodo = todo => ({
+  type: ADD_TODO,
   todo,
 });
 
 export const getTodos = state => state.todos;
 
-const initialState = {
-  todos: [],
-};
-
 const reducer = (state, action) => {
   switch (action.type) {
-    case HANDLE_ADD:
+    case ADD_TODO:
       return {
         ...state,
-        todos: [...state.todos, action.todo],
+        todos: [
+          ...state.todos,
+          action.todo,
+        ],
       };
 
     default:

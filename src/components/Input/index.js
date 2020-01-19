@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import ClassNames from 'classnames';
 
 const URL = 'https://my-json-server.typicode.com/helmax-y/mate-hackathon/todos';
 
@@ -24,19 +26,21 @@ const Input = ({ hour, todos }) => {
           body: input,
         },
       ]),
-      headers: {
-        'Content-Type': 'application/json'
-      },
     });
   };  
+
+  const inputClass = ClassNames(
+    { day__input: true },
+    // { 'day__input--event': todos.find() }
+  )
 
   return (
     <form onSubmit={handleSubmit}>
       <input
-          className="new-todo"
-          type="text"
-          value={input}
-          onChange={handleInputChange}
+        className={inputClass}
+        type="text"
+        value={input}
+        onChange={handleInputChange}
       />
     </form>
   );

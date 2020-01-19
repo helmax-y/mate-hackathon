@@ -76,7 +76,9 @@ const Month = () => {
       <table className="table">
         <thead>
           <tr>
-            {daysArr.map(day => <th className="table__th">{day}</th>)}
+            {daysArr.map(day => (
+              <th key={day} className="table__th">{day}</th>
+            ))}
           </tr>
         </thead>
         <tbody>
@@ -85,7 +87,7 @@ const Month = () => {
               <MonthDay 
                 date={date}
                 month={month}
-                year={year}  
+                year={year}
               />
             ))}
           </tr>

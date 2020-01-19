@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/mate-hackathon/static/css/main.94c1015e.chunk.css",
-    "main.js": "/mate-hackathon/static/js/main.c894d03a.chunk.js",
-    "main.js.map": "/mate-hackathon/static/js/main.c894d03a.chunk.js.map",
+    "main.js": "/mate-hackathon/static/js/main.07844c14.chunk.js",
+    "main.js.map": "/mate-hackathon/static/js/main.07844c14.chunk.js.map",
     "runtime-main.js": "/mate-hackathon/static/js/runtime-main.5ed8586f.js",
     "runtime-main.js.map": "/mate-hackathon/static/js/runtime-main.5ed8586f.js.map",
-    "static/js/2.1b53d6ff.chunk.js": "/mate-hackathon/static/js/2.1b53d6ff.chunk.js",
-    "static/js/2.1b53d6ff.chunk.js.map": "/mate-hackathon/static/js/2.1b53d6ff.chunk.js.map",
+    "static/js/2.aae88c4e.chunk.js": "/mate-hackathon/static/js/2.aae88c4e.chunk.js",
+    "static/js/2.aae88c4e.chunk.js.map": "/mate-hackathon/static/js/2.aae88c4e.chunk.js.map",
     "index.html": "/mate-hackathon/index.html",
-    "precache-manifest.0e7a6e01202f380fca8927a1269914db.js": "/mate-hackathon/precache-manifest.0e7a6e01202f380fca8927a1269914db.js",
+    "precache-manifest.435df7e894c0ac7a198cf1a78cbeefa7.js": "/mate-hackathon/precache-manifest.435df7e894c0ac7a198cf1a78cbeefa7.js",
     "service-worker.js": "/mate-hackathon/service-worker.js",
     "static/css/main.94c1015e.chunk.css.map": "/mate-hackathon/static/css/main.94c1015e.chunk.css.map",
-    "static/js/2.1b53d6ff.chunk.js.LICENSE": "/mate-hackathon/static/js/2.1b53d6ff.chunk.js.LICENSE"
+    "static/js/2.aae88c4e.chunk.js.LICENSE": "/mate-hackathon/static/js/2.aae88c4e.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.5ed8586f.js",
-    "static/js/2.1b53d6ff.chunk.js",
+    "static/js/2.aae88c4e.chunk.js",
     "static/css/main.94c1015e.chunk.css",
-    "static/js/main.c894d03a.chunk.js"
+    "static/js/main.07844c14.chunk.js"
   ]
 }

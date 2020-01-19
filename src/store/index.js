@@ -7,6 +7,9 @@ const initialState = {
 };
 
 const ADD_TODO = 'ADD_TODO';
+const TOGGLE_IMPORTANCE = 'TOGGLE_IMPORTANCE';
+const ADD_MARK = 'ADD_MARK';
+const DELETE_TODO = 'DELETE_TODO';
 const SET_YEAR = 'SET_YEAR';
 const SET_MONTH = 'SET_MONTH';
 
@@ -19,6 +22,19 @@ export const addTodo = payload => ({
   payload,
 });
 
+export const toggleImportance = (id, isImportant) => ({
+  type: ADD_TODO,
+  id,
+  isImportant,
+});
+
+export const deleteTodo = (date, body, hour) => ({
+  type: DELETE_TODO,
+  date,
+  body,
+  hour,
+});
+
 export const setYear = payload => ({
   type: SET_YEAR,
   payload,
@@ -26,9 +42,8 @@ export const setYear = payload => ({
 
 export const setMonth = payload => ({
   type: SET_MONTH,
-  payload,
+  payload
 });
-
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -39,6 +54,24 @@ const reducer = (state, action) => {
           ...state.todos,
           action.payload,
         ],
+      };
+
+    case TOGGLE_IMPORTANCE:
+      return {
+        ...state,
+        todos: state.todos.map(todo => todo.id === action.id
+          ? {
+            ...todo,
+            isImportant: action.isImportant,
+          }
+          : todo)
+      }
+
+    case DELETE_TODO:
+      return {
+        ...state,
+        todos: state.todos.filter(todo => todo.date !== action.date
+          || todo.body !== action.body || todo.hour !== action.hour),
       };
 
     case SET_YEAR:

@@ -11,7 +11,7 @@ const hours = [...Array(24).keys()];
 
 const Day = () => {
   console.log(getTodos);
-  
+
   const todos = useSelector(getTodos);
   const location = useLocation();
   const date = location.pathname.slice(1).split('-');
@@ -26,23 +26,28 @@ const Day = () => {
       </h2>
       <div className="day__content">
         {hours.map(hour => (
-          <div className="day__hour">
+          <div
+              className="day__hour"
+              key={hour}
+          >
             <span className="day__hour-text">{`${hour}:00`}</span>
             <Input hour={hour} />
+              <div className="labels">
+                <label className="label--important">Important
+                  <input
+                    type="checkbox"
+                    checked={isImportant}
+                  />
+                </label>
 
-            <label>Important
-              <input 
-                type="checkbox" 
-                checked={isImportant}
-              />
-            </label>
-
-            <select
-              // onChange={}
-            >
-              <option value="">work</option>
-              <option value="">personal</option>
-            </select>
+                <select
+                    className="label--todo-type"
+                  // onChange={}
+                >
+                  <option value="">work</option>
+                  <option value="">personal</option>
+                </select>
+            </div>
           </div>
         ))}
       </div>
